@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Kualitatif </title>
+  </head>
+
+  <body class="bg-image">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <button id="button" class="btn btn-dark btn-lg btn-shadow" onclick="mulai()">
+        Pencet disini!
+      </button>
+      <!-- Muncul ketika icon hati di klik -->
+      <div id="iloveyou" style="display: none">
+        <p>
+            <center>
+                <iframe width="560" height="560" src="https://www.youtube.com/embed/6kSqq3cLrO0" iframe width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>"
+        </p>
+        <img src="   " />
+      </div>
+    </div>
+
+    <!-- Footer hati yang bisa di klik -->
+    <span
+      id="hati"
+      class="fixed-bottom text-center my-3"
+      onclick="hati()"
+    ></span>
+
+    <!-- untuk buat alert pake sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript">
+      //Buat footer
+      const author = "Geo :)";
+      const emot_batu = "&#10084;&#65039;";
+      document.getElementById(
+        "hati"
+      ).innerHTML = `Made with ${emot_batu} by ${author}`;
+
+      //Nentuin warna button ok & cancel
+      const swals = Swal.mixin({
+        cancelButtonColor: "#DC143C",
+        confirmButtonColor: "#1E90FF",
+      });
+
+      //Buat alert pembuka
+      async function mulai() {
+
+        var { value: nama } = await swals.fire({
+          title: "Masukin nama kamu duluu",
+          input: "text",
+          showCancelButton: false,
+        });
+
+        //Buat alert opsional
+        if (nama.toLowerCase().includes('olatya')) {
+          var { isConfirmed: sayang } = await swals.fire({
+            title: `Apakah ini bener bener ${nama}?`,
+            confirmButtonText: "Beneran dong",
+  
+            showCancelButton: true,
+          });
+          await swals.fire("Kuesioner Skripsi Geo Asmara", "mohon ikuti kuesioner ini dengan baik");
+        await swals.fire("tapi bong, engga deng ini bukan kuesioner, ini cuman ucapan doang hehe, maap ya nyita waktu kamu, sebenrnya gatau juga sih mo ngomong apa tapi, disaat kmu buka kuesioner boongan ini mungkin lagi valentine, yaudh mo bilang happy valentine aja, lagian bingung mo ngucapin kesiapa selain ke nyokap wkwk");
+        await swals.fire("Ehh.. masih disini laa? Oiya biar ga kentang ada pertanyaan dikit nih..");
+        await swals.fire("Jawab yang bener yak!");
+          //Buat alert range 1-100
+          if (sayang) {
+            await swals.fire("Mau nanya nihh.. inget ga pertama kali kita ketemu tanggal berapa?");
+            var { value: persen } = await swals.fire({
+              title: "Tanggal berapa emg kita ketemunya?",
+              icon: "question",
+              input: "range",
+              inputAttributes: {
+                min: 1,
+                max: 30,
+              },
+              inputValue: 1, //agar awal range mulai dari value 50
+            });
+            if (persen) {
+              await swals.fire(
+                `salah jawabanannya itu 20!!`
+              );
+              //Buat alert kangen
+              
+              var { isConfirmed: kangen } = await swals.fire({
+                title: "pan kapan gereja bareng mau ga? percuma sih nanya, gw gabisa liat jawabannya :)",
+                confirmButtonText: "mau :)",
+                cancelButtonText: "engga :(",
+                showCancelButton: true,
+              });
+              if (kangen) {
+                
+                await swals.fire("ah boong ah.. wkwk"); 
+           
+                await swals.fire("karena udh jawab mau, aku mo ngasih tau sesuatu,.. coba klik ikon hati yang paling bawah yaa..");
+              } else {
+                //Buat alert gak kangen
+                await swals.fire("yahh yowes lah, jalur langit keknya udh ga mempan wkwk");
+                await swals.fire("oiya aku mo ngasih tau rahasia... Coba klik ikon hati di paling bawah yaa");
+      
+              }
+            }
+          } else {
+            //Buat alert gak sayang
+            await swals.fire("Gimana sii.. yang bener ahh");
+          }
+        } else {
+          //Buat alert kalo gk isi nama
+          await swals.fire("Yahhh gabisa jalan. harus olatya!");
+          await swals.fire("Ulang dari awal yaa, pastiin Kamu itu olatya okeh?");
+        }
+      }
+      //Buat fitur confetti ketika di klik emot jantung
+      function hati() {
+        document.getElementById("button").style = "display: none";
+        document.getElementById("iloveyou").style = "";
+        document.body.style.backgroundImage = "url('assets/background-confetti_web_gombalan.jpg')";
+        startConfetti(); 
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://www.cssscript.com/demo/confetti-falling-animation/confetti.js"
+    ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+  </body>
+</html>
